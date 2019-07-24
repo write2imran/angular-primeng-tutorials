@@ -228,7 +228,11 @@
               "projects/primeng-input/src/assets"
             ],
             "styles": [
-              "projects/primeng-input/src/styles.css"
+              "projects/primeng-input/src/styles.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css"              
             ],
             "scripts": []
           },
@@ -316,6 +320,154 @@
             "production": {
               "devServerTarget": "primeng-input:serve:production"
             }
+          }
+        }
+      }
+    },
+    "primeng-wizard": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/primeng-wizard",
+      "sourceRoot": "projects/primeng-wizard/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/primeng-wizard",
+            "index": "projects/primeng-wizard/src/index.html",
+            "main": "projects/primeng-wizard/src/main.ts",
+            "polyfills": "projects/primeng-wizard/src/polyfills.ts",
+            "tsConfig": "projects/primeng-wizard/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/primeng-wizard/src/favicon.ico",
+              "projects/primeng-wizard/src/assets"
+            ],
+            "styles": [
+              "projects/primeng-wizard/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/primeng-wizard/src/environments/environment.ts",
+                  "with": "projects/primeng-wizard/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "primeng-wizard:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "primeng-wizard:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "primeng-wizard:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/primeng-wizard/src/test.ts",
+            "polyfills": "projects/primeng-wizard/src/polyfills.ts",
+            "tsConfig": "projects/primeng-wizard/tsconfig.spec.json",
+            "karmaConfig": "projects/primeng-wizard/karma.conf.js",
+            "assets": [
+              "projects/primeng-wizard/src/favicon.ico",
+              "projects/primeng-wizard/src/assets"
+            ],
+            "styles": [
+              "projects/primeng-wizard/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/primeng-wizard/tsconfig.app.json",
+              "projects/primeng-wizard/tsconfig.spec.json",
+              "projects/primeng-wizard/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/primeng-wizard/e2e/protractor.conf.js",
+            "devServerTarget": "primeng-wizard:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "primeng-wizard:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "primng-libs": {
+      "projectType": "library",
+      "root": "projects/primng-libs",
+      "sourceRoot": "projects/primng-libs/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/primng-libs/tsconfig.lib.json",
+            "project": "projects/primng-libs/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/primng-libs/src/test.ts",
+            "tsConfig": "projects/primng-libs/tsconfig.spec.json",
+            "karmaConfig": "projects/primng-libs/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/primng-libs/tsconfig.lib.json",
+              "projects/primng-libs/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }

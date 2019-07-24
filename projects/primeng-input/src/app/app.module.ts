@@ -8,7 +8,7 @@ import {InputMaskModule} from 'primeng/components/inputmask/inputmask';
 import {RadioButtonModule} from 'primeng/components/radiobutton/radiobutton';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
-import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
+//import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent} from './app.component';
 
@@ -24,7 +24,7 @@ import { InputMaskComponent } from './inputmask/inputmask.component';
         InputMaskModule,
         RadioButtonModule,
         GrowlModule,
-        WizardModule
+        //WizardModule
     ],
     declarations: [
         AppComponent,
