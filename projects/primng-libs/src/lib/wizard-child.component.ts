@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
         <ng-content></ng-content>
     </div>
     `,
-    styleUrls: ['.pe-step-container {padding: 45px 25px 45px 25px; margin-bottom: 20px;}']
+    styleUrls: ['./wizard-child.component.scss']
 })
 export class WizardChildComponent implements OnInit {
 
@@ -23,3 +23,5 @@ export class WizardChildComponent implements OnInit {
 
      }
 }
+
+
